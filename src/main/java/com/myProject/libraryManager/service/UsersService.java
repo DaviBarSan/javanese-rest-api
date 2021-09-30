@@ -8,6 +8,7 @@ import com.myProject.libraryManager.exceptions.UserNotFoundException;
 import com.myProject.libraryManager.mapper.UsersMapper;
 import com.myProject.libraryManager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -61,6 +62,8 @@ public class UsersService {
         User currUser = verifyIfUserExists(id);
         return currUser.getRentalActivity();
     }
+
+
     private User verifyIfUserExists(Long id) throws UserNotFoundException {
          return userRepository.findById(id).orElseThrow(
                 () -> new UserNotFoundException("User not registred in MyLibrary!"));

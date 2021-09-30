@@ -1,5 +1,6 @@
 package com.myProject.libraryManager.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -34,6 +35,7 @@ public class User {
 
     @OneToMany(mappedBy = "userRent",
     fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<BooksRental> rentalActivity;
 
     @Override

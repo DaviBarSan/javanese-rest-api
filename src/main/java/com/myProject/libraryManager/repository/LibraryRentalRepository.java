@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LibraryRentalRepository extends JpaRepository<BooksRental, Long> {
-    BooksRental findByUserRentId(Long id);
+    List<BooksRental> findByUserRent(User userRent);
 }

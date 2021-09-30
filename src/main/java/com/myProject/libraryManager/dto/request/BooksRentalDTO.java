@@ -15,9 +15,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BooksRentDTO {
+public class BooksRentalDTO {
 
-    private Long rentalID;
+    private Long rentalId;
 
     @NotNull
     private User userRent;

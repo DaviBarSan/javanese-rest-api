@@ -1,5 +1,7 @@
 package com.myProject.libraryManager.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,12 +21,14 @@ public class BooksRental {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rentalId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_rent_id")
+    @JsonBackReference
     private User userRent;
 
     @OneToMany(targetEntity = Books.class
             ,fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Books> booksRented;
 
     @Column(nullable = false)

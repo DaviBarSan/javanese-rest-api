@@ -1,5 +1,6 @@
 package com.myProject.libraryManager.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -49,6 +50,7 @@ public class Books {
     @ManyToOne(targetEntity = BooksRental.class,
         fetch = FetchType.EAGER)
     @JoinColumn(name = "book_rental_id")
+    @JsonBackReference
     private BooksRental bookRental;
 
     @Override
